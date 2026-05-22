@@ -122,5 +122,20 @@ public class Servicios {
     }
 
     //Dado un fichero disperso, decidme la cantidad de lineas que tiene ese fichero.
+    public int numeroLineasFicheroDisperso(BufferedReader bfArchivoDado) {
+        String linea;
+        int resultado = 0;
 
+        try {
+            while ((linea = bfArchivoDado.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    resultado = resultado + 1;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Se ha encontrado el error:" + e.getMessage());
+        }
+
+        return resultado;
+    }
 }
